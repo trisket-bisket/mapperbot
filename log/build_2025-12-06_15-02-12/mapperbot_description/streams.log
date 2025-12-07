@@ -1,0 +1,20 @@
+[0.820s] Invoking command in '/home/joemamma/fusion/src/mapperbot_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joemamma/fusion/build/mapperbot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mapperbot_description build --build-base /home/joemamma/fusion/build/mapperbot_description/build install --record /home/joemamma/fusion/build/mapperbot_description/install.log --single-version-externally-managed install_data
+[1.103s] running egg_info
+[1.122s] writing ../../build/mapperbot_description/mapperbot_description.egg-info/PKG-INFO
+[1.122s] writing dependency_links to ../../build/mapperbot_description/mapperbot_description.egg-info/dependency_links.txt
+[1.122s] writing requirements to ../../build/mapperbot_description/mapperbot_description.egg-info/requires.txt
+[1.122s] writing top-level names to ../../build/mapperbot_description/mapperbot_description.egg-info/top_level.txt
+[1.170s] reading manifest file '../../build/mapperbot_description/mapperbot_description.egg-info/SOURCES.txt'
+[1.172s] writing manifest file '../../build/mapperbot_description/mapperbot_description.egg-info/SOURCES.txt'
+[1.172s] running build
+[1.172s] running build_py
+[1.172s] running install
+[1.181s] running install_lib
+[1.204s] running install_data
+[1.204s] copying config/ros_gz_bridge_gazebo.yaml -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[1.204s] running install_egg_info
+[1.227s] removing '/home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description-0.0.0-py3.12.egg-info' (and everything under it)
+[1.227s] Copying ../../build/mapperbot_description/mapperbot_description.egg-info to /home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description-0.0.0-py3.12.egg-info
+[1.228s] running install_scripts
+[1.373s] writing list of installed files to '/home/joemamma/fusion/build/mapperbot_description/install.log'
+[1.399s] Invoked command in '/home/joemamma/fusion/src/mapperbot_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joemamma/fusion/build/mapperbot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mapperbot_description build --build-base /home/joemamma/fusion/build/mapperbot_description/build install --record /home/joemamma/fusion/build/mapperbot_description/install.log --single-version-externally-managed install_data

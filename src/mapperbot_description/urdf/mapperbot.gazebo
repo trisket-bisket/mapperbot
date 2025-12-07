@@ -1,0 +1,259 @@
+<?xml version="1.0" ?>
+<robot name="mapperbot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="fl_control_arm">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="wheel_front_left">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="fr_control_arm">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="wheel_front_right">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="br_control_arm">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="wheel_back_right">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="bl_control_arm">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="wheel_back_left">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="periscope_base">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="scope_lower">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="scope_mid_lower">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="scope_mid_upper">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="scope_upper">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="camera_body">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="camera_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="lidar_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="imu_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<!-- SENSORS SYSTEM PLUGIN -->
+<gazebo>
+<plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+<render_engine>ogre2</render_engine>
+</plugin>
+</gazebo>
+
+<!-- LIDAR Sensor Setup-->
+<gazebo reference="mapperbot/base_link/lidar_link">
+<sensor name="lidar_link" type="gpu_lidar">
+  <always_on>1</always_on>
+  <visualize>1</visualize>
+  <topic>lidar</topic>
+  <pose relative_to="base_link">0.255 0 0.153 0 0 0</pose>
+  <update_rate>10</update_rate>
+  <lidar>
+    <scan>
+      <horizontal>
+        <samples>640</samples>
+        <resolution>1</resolution>
+        <min_angle>-2.35619449</min_angle>
+        <max_angle>2.35619449</max_angle>
+      </horizontal>
+      <vertical>
+        <samples>640</samples>
+        <resolution>1</resolution>
+        <min_angle>-0.174532925</min_angle>
+        <max_angle>0.523599</max_angle>
+        </vertical>
+    </scan>
+    <range>
+      <min>0.1</min>
+      <max>20.0</max>
+      <resolution>0.01</resolution>
+    </range>
+  </lidar>
+</sensor>
+</gazebo>
+
+<!-- Camera Sensor-->
+<gazebo reference="camera_link">
+  <sensor name="mapperbot_camera" type="camera">
+    <always_on>true</always_on>
+    <update_rate>30</update_rate>
+    <topic>mapperbot/camera</topic>
+    <pose relative_to="base_link">0.051 -0.055 0.66 0 0 0</pose>
+    <camera>
+      <horizontal_fov>1.047</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>50.0</far>
+      </clip>
+    </camera>
+    <visualize>true</visualize>
+  </sensor>
+</gazebo>
+
+<gazebo>
+  <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+</gazebo>
+<!-- IMU Sensor -->
+<gazebo reference="imu_link">
+  <sensor name="mapperbot_imu" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <topic>imu</topic>
+    <pose relative_to="base_link">0.125 -0.075 0.121 0 0 0</pose>
+    <gz_frame_id>imu_link</gz_frame_id>
+    <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.0002</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.0002</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.0002</stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.017</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.017</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>0.017</stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu>
+  </sensor>
+</gazebo>
+
+<gazebo>
+<plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+<parameters>
+$(find mapperbot_description)/config/controller_config.yaml
+</parameters>
+</plugin>
+</gazebo>
+
+</robot>

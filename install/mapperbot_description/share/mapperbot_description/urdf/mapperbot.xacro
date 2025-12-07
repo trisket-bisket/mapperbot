@@ -1,0 +1,504 @@
+<?xml version="1.0" ?>
+<robot name="mapperbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mapperbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mapperbot_description)/urdf/mapperbot.ros2control" />
+<xacro:include filename="$(find mapperbot_description)/urdf/mapperbot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.007468070541938389 -9.288922194598249e-05 0.05617291658209001" rpy="0 0 0"/>
+    <mass value="5.177538235942447"/>
+    <inertia ixx="0.053754" iyy="0.152647" izz="0.174457" ixy="5.7e-05" iyz="3.1e-05" ixz="-0.002879"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_control_arm">
+  <inertial>
+    <origin xyz="3.235239853793814e-11 0.0002171576276056575 -0.06510681020445454" rpy="0 0 0"/>
+    <mass value="0.04509596765186873"/>
+    <inertia ixx="3.7e-05" iyy="3.7e-05" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 -0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/fl_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 -0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/fl_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_left">
+  <inertial>
+    <origin xyz="2.60770322002557e-09 0.025000000000000022 -1.5348195908648776e-09" rpy="0 0 0"/>
+    <mass value="1.1506717057432432"/>
+    <inertia ixx="0.001714" iyy="0.002997" izz="0.001714" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 -0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 -0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_control_arm">
+  <inertial>
+    <origin xyz="3.235239853793814e-11 -0.0002171576276056575 -0.06510681020445454" rpy="0 0 0"/>
+    <mass value="0.04509596765186873"/>
+    <inertia ixx="3.7e-05" iyy="3.7e-05" izz="5e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/fr_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/fr_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_right">
+  <inertial>
+    <origin xyz="2.60770322002557e-09 -0.025000000000000022 -1.5348196047426654e-09" rpy="0 0 0"/>
+    <mass value="1.1506717057432432"/>
+    <inertia ixx="0.001714" iyy="0.002997" izz="0.001714" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="br_control_arm">
+  <inertial>
+    <origin xyz="-3.2352648338118684e-11 -0.000217157627605713 -0.06510681020445462" rpy="0 0 0"/>
+    <mass value="0.04509596765186869"/>
+    <inertia ixx="3.7e-05" iyy="3.7e-05" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/br_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/br_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_right">
+  <inertial>
+    <origin xyz="-2.60770322002557e-09 -0.025000000000000022 -1.5348196047426654e-09" rpy="0 0 0"/>
+    <mass value="1.1506717057432432"/>
+    <inertia ixx="0.001714" iyy="0.002997" izz="0.001714" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bl_control_arm">
+  <inertial>
+    <origin xyz="-3.2352648338118684e-11 0.00021715762760574076 -0.06510681020445462" rpy="0 0 0"/>
+    <mass value="0.04509596765186869"/>
+    <inertia ixx="3.7e-05" iyy="3.7e-05" izz="5e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 -0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/bl_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 -0.125 0.018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/bl_control_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_left">
+  <inertial>
+    <origin xyz="-2.60770322002557e-09 0.025000000000000022 -1.5348196047426654e-09" rpy="0 0 0"/>
+    <mass value="1.1506717057432432"/>
+    <inertia ixx="0.001714" iyy="0.002997" izz="0.001714" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 -0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 -0.145 0.103" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="periscope_base">
+  <inertial>
+    <origin xyz="-5.7435007440948595e-18 -5.7435007440948595e-18 0.050405763317131216" rpy="0 0 0"/>
+    <mass value="6.215315124889596"/>
+    <inertia ixx="0.009143" iyy="0.009143" izz="0.007757" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/periscope_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/periscope_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="scope_lower">
+  <inertial>
+    <origin xyz="7.092140005049029e-18 7.092140005049029e-18 -0.04960411562959342" rpy="0 0 0"/>
+    <mass value="0.9137086613516894"/>
+    <inertia ixx="0.001235" iyy="0.001235" izz="0.000924" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="scope_mid_lower">
+  <inertial>
+    <origin xyz="0.0 0.0 0.050383702899674386" rpy="0 0 0"/>
+    <mass value="0.7217671676943958"/>
+    <inertia ixx="0.000899" iyy="0.000899" izz="0.000576" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_mid_lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_mid_lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="scope_mid_upper">
+  <inertial>
+    <origin xyz="2.287974079576178e-14 0.0 0.15036831442463539" rpy="0 0 0"/>
+    <mass value="0.5524333601704973"/>
+    <inertia ixx="0.000636" iyy="0.000636" izz="0.000338" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 0.077" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_mid_upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 0.077" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_mid_upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="scope_upper">
+  <inertial>
+    <origin xyz="8.717978162132115e-16 0.0 0.2500428809325563" rpy="0 0 0"/>
+    <mass value="0.40324501553774333"/>
+    <inertia ixx="0.000427" iyy="0.000427" izz="0.000181" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 0.176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 0.176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/scope_upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_body">
+  <inertial>
+    <origin xyz="-0.00013170583332755187 -4.132666024565673e-05 0.039898056224867445" rpy="0 0 0"/>
+    <mass value="2.2613142078796447"/>
+    <inertia ixx="0.008624" iyy="0.003065" izz="0.009312" ixy="5e-06" iyz="-0.0" ixz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.127" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/camera_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.127" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/camera_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link">
+  <inertial>
+    <origin xyz="0.000999999999999994 6.938893903907228e-18 -8.326672684688674e-17" rpy="0 0 0"/>
+    <mass value="0.005595961914206822"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.051 0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.051 0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mapperbot/base_link/lidar_link">
+  <inertial>
+    <origin xyz="-5.551115123125783e-17 0.0 0.009999999999999981" rpy="0 0 0"/>
+    <mass value="0.12590914306965326"/>
+    <inertia ixx="4.8e-05" iyy="4.8e-05" izz="8.9e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.255 -0.0 -0.153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.255 -0.0 -0.153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link">
+  <inertial>
+    <origin xyz="0.0 0.0 0.010000000000000009" rpy="0 0 0"/>
+    <mass value="0.12824999999999998"/>
+    <inertia ixx="3.1e-05" iyy="9.1e-05" izz="0.000113" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.125 0.075 -0.121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.125 0.075 -0.121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mapperbot_description)/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_to_fl_control" type="revolute">
+  <origin xyz="0.175 0.125 -0.018" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fl_control_arm"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="fl_control_to_wheel" type="continuous">
+  <origin xyz="0.0 0.02 -0.085" rpy="0 0 0"/>
+  <parent link="fl_control_arm"/>
+  <child link="wheel_front_left"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="base_to_fr_control" type="revolute">
+  <origin xyz="0.175 -0.125 -0.018" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fr_control_arm"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="fr_control_to_wheel" type="continuous">
+  <origin xyz="0.0 -0.02 -0.085" rpy="0 0 0"/>
+  <parent link="fr_control_arm"/>
+  <child link="wheel_front_right"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="base_to_br_control" type="fixed">
+  <origin xyz="-0.175 -0.125 -0.018" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="br_control_arm"/>
+</joint>
+
+<joint name="br_control_to_wheel" type="continuous">
+  <origin xyz="0.0 -0.02 -0.085" rpy="0 0 0"/>
+  <parent link="br_control_arm"/>
+  <child link="wheel_back_right"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="base_to_bl_control" type="fixed">
+  <origin xyz="-0.175 0.125 -0.018" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bl_control_arm"/>
+</joint>
+
+<joint name="bl_control_to_wheel" type="continuous">
+  <origin xyz="0.0 0.02 -0.085" rpy="0 0 0"/>
+  <parent link="bl_control_arm"/>
+  <child link="wheel_back_left"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="base_to_periscope_base" type="fixed">
+  <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="periscope_base"/>
+</joint>
+
+<joint name="scope_base_to_lower" type="prismatic">
+  <origin xyz="0.0 0.0 0.101" rpy="0 0 0"/>
+  <parent link="periscope_base"/>
+  <child link="scope_lower"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+<joint name="scope_lower_to_mid_lower" type="prismatic">
+  <origin xyz="0.0 0.0 -0.099" rpy="0 0 0"/>
+  <parent link="scope_lower"/>
+  <child link="scope_mid_lower"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+<joint name="scope_mid_lower_to_upper" type="prismatic">
+  <origin xyz="0.0 0.0 -0.099" rpy="0 0 0"/>
+  <parent link="scope_mid_lower"/>
+  <child link="scope_mid_upper"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+<joint name="scope_mid_upper_to_upper" type="prismatic">
+  <origin xyz="0.0 0.0 -0.099" rpy="0 0 0"/>
+  <parent link="scope_mid_upper"/>
+  <child link="scope_upper"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+<joint name="scope_upper_to_camera" type="continuous">
+  <origin xyz="0.0 0.0 0.303" rpy="0 0 0"/>
+  <parent link="scope_upper"/>
+  <child link="camera_body"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="camera_body_to_link" type="fixed">
+  <origin xyz="0.051 -0.055 0.038" rpy="0 0 0"/>
+  <parent link="camera_body"/>
+  <child link="camera_link"/>
+</joint>
+
+<joint name="base_to_lidar" type="fixed">
+  <origin xyz="0.255 0.0 0.153" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mapperbot/base_link/lidar_link"/>
+</joint>
+
+<joint name="base_to_imu" type="fixed">
+  <origin xyz="0.125 -0.075 0.121" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+</joint>
+
+</robot>

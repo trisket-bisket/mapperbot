@@ -1,0 +1,40 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+
+    telescoping_controller:
+      type: forward_command_controller/ForwardCommandController
+    
+joint_state_broadcaster:
+  ros__parameters: {}
+
+ackermann_steering_controller:
+  ros__parameters:
+    steering_joints_names:
+      - base_to_fr_control
+      - base_to_fl_control
+    traction_joints_names:
+      - br_control_to_wheel
+      - bl_control_to_wheel
+    wheelbase: 0.35
+    steering_track_width: 0.2
+    traction_track_width: 0.2
+    traction_wheels_radius: 0.075
+    open_loop: true
+    use_stamped_vel: false
+
+telescoping_controller:
+  ros__parameters:
+    joints:
+      - scope_base_to_lower
+      - scope_lower_to_mid_lower
+      - scope_mid_lower_to_upper
+      - scope_mid_upper_to_upper
+      - scope_upper_to_camera
+    interface_name: position

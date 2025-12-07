@@ -1,0 +1,64 @@
+[0.532s] Invoking command in '/home/joemamma/fusion/src/mapperbot_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joemamma/fusion/build/mapperbot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mapperbot_description build --build-base /home/joemamma/fusion/build/mapperbot_description/build install --record /home/joemamma/fusion/build/mapperbot_description/install.log --single-version-externally-managed install_data
+[0.718s] running egg_info
+[0.718s] creating ../../build/mapperbot_description/mapperbot_description.egg-info
+[0.730s] writing ../../build/mapperbot_description/mapperbot_description.egg-info/PKG-INFO
+[0.731s] writing dependency_links to ../../build/mapperbot_description/mapperbot_description.egg-info/dependency_links.txt
+[0.731s] writing requirements to ../../build/mapperbot_description/mapperbot_description.egg-info/requires.txt
+[0.731s] writing top-level names to ../../build/mapperbot_description/mapperbot_description.egg-info/top_level.txt
+[0.731s] writing manifest file '../../build/mapperbot_description/mapperbot_description.egg-info/SOURCES.txt'
+[0.757s] reading manifest file '../../build/mapperbot_description/mapperbot_description.egg-info/SOURCES.txt'
+[0.758s] writing manifest file '../../build/mapperbot_description/mapperbot_description.egg-info/SOURCES.txt'
+[0.758s] running build
+[0.758s] running build_py
+[0.758s] creating /home/joemamma/fusion/build/mapperbot_description/build
+[0.758s] creating /home/joemamma/fusion/build/mapperbot_description/build/lib
+[0.758s] creating /home/joemamma/fusion/build/mapperbot_description/build/lib/mapperbot_description
+[0.758s] copying mapperbot_description/__init__.py -> /home/joemamma/fusion/build/mapperbot_description/build/lib/mapperbot_description
+[0.758s] running install
+[0.762s] running install_lib
+[0.775s] creating /home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description
+[0.775s] copying /home/joemamma/fusion/build/mapperbot_description/build/lib/mapperbot_description/__init__.py -> /home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description
+[0.776s] byte-compiling /home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description/__init__.py to __init__.cpython-312.pyc
+[0.776s] running install_data
+[0.776s] creating /home/joemamma/fusion/install/mapperbot_description/share/ament_index
+[0.776s] creating /home/joemamma/fusion/install/mapperbot_description/share/ament_index/resource_index
+[0.776s] creating /home/joemamma/fusion/install/mapperbot_description/share/ament_index/resource_index/packages
+[0.776s] copying resource/mapperbot_description -> /home/joemamma/fusion/install/mapperbot_description/share/ament_index/resource_index/packages
+[0.776s] copying package.xml -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description
+[0.776s] creating /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/launch
+[0.777s] copying launch/gazebo.launch.py -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/launch
+[0.777s] copying launch/display.launch.py -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/launch
+[0.777s] creating /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/urdf
+[0.777s] copying urdf/mapperbot.xacro -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/urdf
+[0.777s] copying urdf/mapperbot.ros2control -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/urdf
+[0.777s] copying urdf/mapperbot.gazebo -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/urdf
+[0.777s] copying urdf/materials.xacro -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/urdf
+[0.777s] creating /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.777s] copying meshes/camera_link_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.777s] copying meshes/lidar_link_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.777s] copying meshes/base_link.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.777s] copying meshes/camera_body_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/periscope_base_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/scope_mid_lower_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/wheel_front_right_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/bl_control_arm_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/imu_link_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/wheel_back_right_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/scope_mid_upper_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/wheel_front_left_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/br_control_arm_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/fl_control_arm_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/scope_upper_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/scope_lower_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/fr_control_arm_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.778s] copying meshes/wheel_back_left_1.stl -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/meshes
+[0.779s] creating /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[0.779s] copying config/ros_gz_bridge_gazebo.yaml -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[0.779s] copying config/gazebo.rviz -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[0.779s] copying config/display.rviz -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[0.779s] copying config/controller_config.yaml -> /home/joemamma/fusion/install/mapperbot_description/share/mapperbot_description/config
+[0.779s] running install_egg_info
+[0.793s] Copying ../../build/mapperbot_description/mapperbot_description.egg-info to /home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages/mapperbot_description-0.0.0-py3.12.egg-info
+[0.793s] running install_scripts
+[0.880s] writing list of installed files to '/home/joemamma/fusion/build/mapperbot_description/install.log'
+[0.897s] Invoked command in '/home/joemamma/fusion/src/mapperbot_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joemamma/fusion/build/mapperbot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joemamma/fusion/install/mapperbot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mapperbot_description build --build-base /home/joemamma/fusion/build/mapperbot_description/build install --record /home/joemamma/fusion/build/mapperbot_description/install.log --single-version-externally-managed install_data
