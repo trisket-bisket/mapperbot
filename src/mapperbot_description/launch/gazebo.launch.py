@@ -12,14 +12,13 @@ import xacro
 from os.path import join
 
 def generate_launch_description():
-
     
-    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_ros_gz_rbot = get_package_share_directory('mapperbot_description')
     robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'mapperbot.xacro')
     ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
     robot_description_config = xacro.process_file(robot_description_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
+    gazebo_world = os.path.join(pkg_ros_gz_rbot, 'worlds', 'mazeworld.sdf')
 
     # Start Robot state publisher
     robot_state_publisher = Node(
@@ -27,15 +26,13 @@ def generate_launch_description():
         executable='robot_state_publisher',
         name='robot_state_publisher',
         output='both',
-        parameters=[robot_description, {'use_sim_time': True},]
+        parameters=[robot_description, {'use_sim_time': True}],
     )
 
     # Start Gazebo Sim
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")),
-        launch_arguments={
-            "gz_args": '-r -v 4 empty.sdf'
-        }.items()
+    gazebo = ExecuteProcess(
+        cmd=['gz', 'sim', '-r', gazebo_world],
+        output='screen'
     )
 
     # Mapperbot Spawn
@@ -43,14 +40,14 @@ def generate_launch_description():
         package='ros_gz_sim',
         executable='create',
         arguments=[
-            "-topic", "/robot_description",
-            "-name", "mapperbot",
-            "--no-namespacing",
-            "-allow_renaming", "true",
-            "-z", "0.103",
-            "-x", "0.0",
-            "-y", "0.0",
-            "-Y", "0.0",
+            '-topic', '/robot_description',
+            '-name', 'mapperbot',
+            '--no-namespacing',
+            '-allow_renaming', 'true',
+            '-z', '0.103',
+            '-x', '0.0',
+            '-y', '0.0',
+            '-Y', '0.0',
         ],
         output='screen',
     )
@@ -60,7 +57,7 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': ros_gz_bridge_config,
+        'config_file': ros_gz_bridge_config,
         }],
         output='screen'
     )
@@ -81,17 +78,15 @@ def generate_launch_description():
                 '--controller-manager', '/controller_manager',
             ],
             output='screen',
-            name=f'spawner_{name}',
+            name='spawner_' + name,
         )
         for name in controller_names
     ]
-    
-    return LaunchDescription(
-        [
-            gazebo,
-            spawn,
-            start_gazebo_ros_bridge_cmd,
-            robot_state_publisher,
-            *controller_spawners,
-        ]
-    )
+
+    return LaunchDescription([
+        gazebo,
+        spawn,
+        start_gazebo_ros_bridge_cmd,
+        robot_state_publisher,
+        *controller_spawners,
+    ])

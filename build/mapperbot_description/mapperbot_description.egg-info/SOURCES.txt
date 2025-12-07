@@ -40,3 +40,4 @@ urdf/mapperbot.gazebo
 urdf/mapperbot.ros2control
 urdf/mapperbot.xacro
 urdf/materials.xacro
+worlds/mazeworld.sdf
